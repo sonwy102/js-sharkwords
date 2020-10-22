@@ -61,7 +61,10 @@ const isLetterInWord = (letter) => {
 // Called when `letter` is in word. Update contents of divs with `letter`.
 //
 const handleCorrectGuess = (letter) => {
-  // Replace this with your code
+  const correctLetters = document.querySelectorAll(`.${letter}`);
+  for (const guess of correctLetters) {
+    guess.innerHTML =`${letter}`;
+  }
 };
 
 // Called when `letter` is not in word.
@@ -70,7 +73,17 @@ const handleCorrectGuess = (letter) => {
 // message. Otherwise, increment `numWrong` and update the shark image.
 //
 const handleWrongGuess = () => {
-  // Replace this with your code
+  numWrong += 1;
+  sharkImg = document.querySelector('#shark-img img');
+  sharkImg.setAttribute("src", `/static/images/guess${numWrong}.png`);
+
+  if (numWrong === 5) {
+    const buttons = document.querySelectorAll("button");
+    for (const btn of buttons) {
+      disableLetterButton(btn);
+    }
+    document.querySelector('#play-again').style.display = '';
+  }
 };
 
 //  Reset game state. Called before restarting the game.
