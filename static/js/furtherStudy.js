@@ -31,7 +31,15 @@ const createDivsForChars = (word) => {
 // Loop over each letter in `ALPHABET` and generate buttons.
 //
 const generateLetterButtons = () => {
-  // Replace this with your code
+
+  letterButton = document.querySelector("#letter-buttons");
+
+  for (const letter of ALPHABET) {
+    const button = document.createElement('button');
+    button.innerText = `${letter}`;
+    letterButton.append(button);
+  }
+    
 };
 
 // Set the `disabled` property of `buttonEl` to `true.
