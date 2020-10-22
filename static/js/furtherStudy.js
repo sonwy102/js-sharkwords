@@ -19,7 +19,13 @@ let numWrong = 0;
 // Loop over the chars in `word` and create divs.
 //
 const createDivsForChars = (word) => {
-  // Replace this with your code
+  const wordContainer = document.querySelector("#word-container");
+  for (const char of word) {
+    const letterBox = document.createElement('div');
+    letterBox.classList.add("letter-box");
+    letterBox.classList.add(`${char}`);
+    wordContainer.append(letterBox);
+  }
 };
 
 // Loop over each letter in `ALPHABET` and generate buttons.
